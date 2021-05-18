@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--메뉴-->
+        <scene sceneID="lrU-Tg-6ag">
+            <objects>
+                <viewController storyboardIdentifier="VIEW01" id="dUG-JN-cgj" customClass="MenuViewController" customModule="se_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t5O-GY-Unr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caB-2D-j4P">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="caB-2D-j4P" secondAttribute="height" multiplier="207:22" id="Xts-rO-vD5"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Menu" id="ZYI-SX-JBu"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="O6k-Ew-uoC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="caB-2D-j4P" firstAttribute="leading" secondItem="O6k-Ew-uoC" secondAttribute="leading" id="7Ip-PU-mST"/>
+                            <constraint firstItem="caB-2D-j4P" firstAttribute="trailing" secondItem="O6k-Ew-uoC" secondAttribute="trailing" id="ZWA-3b-2UI"/>
+                            <constraint firstItem="caB-2D-j4P" firstAttribute="top" secondItem="O6k-Ew-uoC" secondAttribute="top" id="da9-Oe-vbH"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="메뉴" image="Menu" selectedImage="Menu" id="vSj-dl-YuI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d9F-Vc-eT9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1352" y="9"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="gP2-Fe-dbc">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" id="693-0x-DPJ" customClass="TabBarController" customModule="se_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UVG-OC-ffw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.34509803921568627" green="0.74901960784313726" blue="0.88235294117647056" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="dUG-JN-cgj" kind="relationship" relationship="viewControllers" id="Ttt-bd-eCL"/>
+                        <segue destination="jrF-L5-aq4" kind="relationship" relationship="viewControllers" id="xPr-Si-KgP"/>
+                        <segue destination="KGb-vc-tNr" kind="relationship" relationship="viewControllers" id="koW-48-EXI"/>
+                        <segue destination="OxL-HX-Eq6" kind="relationship" relationship="viewControllers" id="rWg-5y-RNJ"/>
+                        <segue destination="bWP-xP-4MB" kind="relationship" relationship="viewControllers" id="OGc-lK-cdD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Es-bX-lZ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-114" y="-856"/>
+        </scene>
+        <!--검색-->
+        <scene sceneID="O60-hq-Yyk">
+            <objects>
+                <viewController storyboardIdentifier="VIEW02" id="jrF-L5-aq4" customClass="SearchViewController" customModule="se_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dJW-u6-C8c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3T-5d-kdb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="c3T-5d-kdb" secondAttribute="height" multiplier="207:22" id="EFP-7e-det"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Search" id="bgm-fc-Vmy"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="poR-gE-J4M"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="c3T-5d-kdb" firstAttribute="leading" secondItem="poR-gE-J4M" secondAttribute="leading" id="8Tv-yi-gEl"/>
+                            <constraint firstItem="c3T-5d-kdb" firstAttribute="top" secondItem="poR-gE-J4M" secondAttribute="top" id="Rrd-zU-juH"/>
+                            <constraint firstItem="c3T-5d-kdb" firstAttribute="trailing" secondItem="poR-gE-J4M" secondAttribute="trailing" id="yB6-Oi-zVJ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="검색" image="Search" id="tJh-Et-RuE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bBn-bM-QPZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-736" y="9"/>
+        </scene>
+        <!--홈-->
+        <scene sceneID="ayc-1o-pzi">
+            <objects>
+                <viewController storyboardIdentifier="VIEW03" id="KGb-vc-tNr" customClass="FreeboardViewController" customModule="se_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ryt-15-Nef">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-H8-HZW">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9DU-H8-HZW" secondAttribute="height" multiplier="207:22" id="YeM-Gn-y9l"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="FreeBoard" id="VkU-d0-zKL">
+                                        <barButtonItem key="leftBarButtonItem" title="로그인" id="aIh-4h-Wop">
+                                            <connections>
+                                                <action selector="btnPrevious:" destination="KGb-vc-tNr" id="ghd-M3-JSV"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="wry-rj-kAq"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ucy-aT-Bz2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PbZ-HB-a6f"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ucy-aT-Bz2" firstAttribute="top" secondItem="9DU-H8-HZW" secondAttribute="bottom" id="Ele-kG-Rmu"/>
+                            <constraint firstItem="ucy-aT-Bz2" firstAttribute="trailing" secondItem="PbZ-HB-a6f" secondAttribute="trailing" id="NSo-eI-y8M"/>
+                            <constraint firstItem="9DU-H8-HZW" firstAttribute="trailing" secondItem="PbZ-HB-a6f" secondAttribute="trailing" id="ZdL-mm-cFZ"/>
+                            <constraint firstItem="ucy-aT-Bz2" firstAttribute="bottom" secondItem="PbZ-HB-a6f" secondAttribute="bottom" id="grg-nB-La7"/>
+                            <constraint firstItem="9DU-H8-HZW" firstAttribute="top" secondItem="PbZ-HB-a6f" secondAttribute="top" id="mpR-03-BjX"/>
+                            <constraint firstItem="9DU-H8-HZW" firstAttribute="leading" secondItem="PbZ-HB-a6f" secondAttribute="leading" id="xiS-t9-q6w"/>
+                            <constraint firstItem="ucy-aT-Bz2" firstAttribute="leading" secondItem="PbZ-HB-a6f" secondAttribute="leading" id="yNw-TU-LzB"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="홈" image="Home" id="hS0-97-iQg"/>
+                    <connections>
+                        <outlet property="postTableView" destination="ucy-aT-Bz2" id="IIc-Bo-9xd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BfB-9o-H7d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-114.49275362318842" y="8.7053571428571423"/>
+        </scene>
+        <!--마이페이지-->
+        <scene sceneID="hep-bg-8ej">
+            <objects>
+                <viewController storyboardIdentifier="VIEW04" id="OxL-HX-Eq6" customClass="MypageViewController" customModule="se_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d5c-cT-Lbh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ISz-qE-yiY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ISz-qE-yiY" secondAttribute="height" multiplier="207:22" id="CIk-lH-IA1"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="MyPage" id="2Of-uB-bUw"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wA7-BX-yB3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ISz-qE-yiY" firstAttribute="top" secondItem="wA7-BX-yB3" secondAttribute="top" id="ZD3-7y-eHg"/>
+                            <constraint firstItem="ISz-qE-yiY" firstAttribute="trailing" secondItem="wA7-BX-yB3" secondAttribute="trailing" id="ePU-H4-R5f"/>
+                            <constraint firstItem="ISz-qE-yiY" firstAttribute="leading" secondItem="wA7-BX-yB3" secondAttribute="leading" id="lRX-BF-Q97"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="마이페이지" image="Mypage" id="hp1-ic-ZKn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e2D-bG-kZC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="514" y="9"/>
+        </scene>
+        <!--알림-->
+        <scene sceneID="eQu-j6-KOq">
+            <objects>
+                <viewController storyboardIdentifier="VIEW05" id="bWP-xP-4MB" customClass="AlarmViewController" customModule="se_iOS_client" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="avE-Rj-ehF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OH0-P2-edm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OH0-P2-edm" secondAttribute="height" multiplier="207:22" id="ndk-JT-1Ot"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Alarm" id="20z-I5-0Rl"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KLA-J7-xT3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OH0-P2-edm" firstAttribute="leading" secondItem="KLA-J7-xT3" secondAttribute="leading" id="ElU-eo-vDN"/>
+                            <constraint firstItem="OH0-P2-edm" firstAttribute="top" secondItem="KLA-J7-xT3" secondAttribute="top" id="hCM-Eq-fLT"/>
+                            <constraint firstItem="OH0-P2-edm" firstAttribute="trailing" secondItem="KLA-J7-xT3" secondAttribute="trailing" id="kLU-X3-WAJ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="알림" image="Alarm" id="BhY-nZ-9b8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hII-hH-HW7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1132" y="9"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Alarm" width="24" height="24"/>
+        <image name="Home" width="24" height="24"/>
+        <image name="Menu" width="24" height="24"/>
+        <image name="Mypage" width="24" height="24"/>
+        <image name="Search" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
