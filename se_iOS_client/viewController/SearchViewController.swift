@@ -7,23 +7,35 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UISearchResultsUpdating {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    //var allLocations:[Post] = []
+    //var filteredLocation:[Post] = []
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUpSearchController() {
+        tableView.tableHeaderView = searchController.searchBar
+        
+        searchController.searchBar.placeholder = "검색어를 입력하세요."
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.searchBarStyle = UISearchBar.Style.prominent
+        searchController.searchBar.sizeToFit()
     }
-    */
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        <#code#>
+    }
 
 }
+

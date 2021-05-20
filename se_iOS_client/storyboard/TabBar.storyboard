@@ -79,16 +79,40 @@
                                     <navigationItem title="Search" id="bgm-fc-Vmy"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QZc-PK-FQG">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Zsr-R2-gq9" customClass="SearchTableViewCell" customModule="se_iOS_client" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zsr-R2-gq9" id="ccV-Md-FlK">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jrF-L5-aq4" id="C5y-C4-2Iw"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="poR-gE-J4M"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="c3T-5d-kdb" firstAttribute="leading" secondItem="poR-gE-J4M" secondAttribute="leading" id="8Tv-yi-gEl"/>
+                            <constraint firstItem="QZc-PK-FQG" firstAttribute="leading" secondItem="poR-gE-J4M" secondAttribute="leading" id="OUo-PD-VCq"/>
                             <constraint firstItem="c3T-5d-kdb" firstAttribute="top" secondItem="poR-gE-J4M" secondAttribute="top" id="Rrd-zU-juH"/>
+                            <constraint firstItem="poR-gE-J4M" firstAttribute="trailing" secondItem="QZc-PK-FQG" secondAttribute="trailing" id="SoI-XA-a5b"/>
+                            <constraint firstItem="poR-gE-J4M" firstAttribute="bottom" secondItem="QZc-PK-FQG" secondAttribute="bottom" id="Ymu-SD-GTP"/>
+                            <constraint firstItem="QZc-PK-FQG" firstAttribute="top" secondItem="c3T-5d-kdb" secondAttribute="bottom" id="tac-El-G79"/>
                             <constraint firstItem="c3T-5d-kdb" firstAttribute="trailing" secondItem="poR-gE-J4M" secondAttribute="trailing" id="yB6-Oi-zVJ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="검색" image="Search" id="tJh-Et-RuE"/>
+                    <connections>
+                        <outlet property="tableView" destination="QZc-PK-FQG" id="50c-hr-ajE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBn-bM-QPZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
