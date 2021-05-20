@@ -7,8 +7,8 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
-
+class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelegate {
+    
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var btnFindId: UIButton!
@@ -55,6 +55,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         btnFindId.layer.borderWidth = borderWidth
         btnFindPassword.layer.borderWidth = borderWidth
         btnGuest.layer.borderWidth = borderWidth
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSignupView" {
+            let signUpVC = segue.destination as! SignUpViewController
+            signUpVC.data = true
+            signUpVC.delegate = self
+        }
+    }
+    
+    func dataReceived(data: Bool) {
+        self.alert("정상적으로 가입이 완료되었습니다.")
     }
     
 }

@@ -8,15 +8,14 @@
 import Foundation
 
 struct Account {
-    var account_id: Int64?
+    var answer: String
+    var email: String
     var id: String
-    var password: String
     var name: String
     var nickname: String
-    var student_id: String?
-    var type: String?
-    var phone_number: String?
-    var email: String
-    var last_signin_ip: String?
-    var information_open_agree: Bool?
+    var password: String
+    var phoneNumber: String
+    var questionId: Int64
+    var studentId: String
+    var type: String
 }

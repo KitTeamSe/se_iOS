@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		AF1FB8CB2618B1650026E7BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FB8CA2618B1650026E7BA /* LoginViewController.swift */; };
 		AF4E9089263FF70300DE02C3 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4E9088263FF70300DE02C3 /* TabBar.storyboard */; };
 		AF4E908B264000DB00DE02C3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E908A264000DB00DE02C3 /* TabBarController.swift */; };
+		AF62E5462656DC5F0045A8A8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62E5452656DC5F0045A8A8 /* Utils.swift */; };
 		AFA64B37260A1AEC001AB94F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA64B36260A1AEC001AB94F /* AppDelegate.swift */; };
 		AFA64B39260A1AEC001AB94F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA64B38260A1AEC001AB94F /* SceneDelegate.swift */; };
 		AFA64B3E260A1AEC001AB94F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA64B3C260A1AEC001AB94F /* Login.storyboard */; };
@@ -38,6 +39,7 @@
 		AF1FB8CA2618B1650026E7BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AF4E9088263FF70300DE02C3 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		AF4E908A264000DB00DE02C3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		AF62E5452656DC5F0045A8A8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		AFA64B33260A1AEC001AB94F /* se_iOS_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = se_iOS_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA64B36260A1AEC001AB94F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFA64B38260A1AEC001AB94F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		AF1FB8D52618D04A0026E7BA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AF62E5452656DC5F0045A8A8 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -161,7 +164,6 @@
 				CCDE8C8310F13F7B9BDF4B7D /* Pods-se_iOS_client.debug.xcconfig */,
 				161DE9C87AEC715CE48F75C2 /* Pods-se_iOS_client.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -283,6 +285,7 @@
 				AF0DE56F26544E1400C5E36F /* SearchViewController.swift in Sources */,
 				AFF4D68C2618F3F800C06FFB /* SignUpViewController.swift in Sources */,
 				AF0DE56B2654486900C5E36F /* FreeboardViewController.swift in Sources */,
+				AF62E5462656DC5F0045A8A8 /* Utils.swift in Sources */,
 				AF1FB8CB2618B1650026E7BA /* LoginViewController.swift in Sources */,
 				AFA64B37260A1AEC001AB94F /* AppDelegate.swift in Sources */,
 				AF0DE56D26544E0600C5E36F /* MenuViewController.swift in Sources */,

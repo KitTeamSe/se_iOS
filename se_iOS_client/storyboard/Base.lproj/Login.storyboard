@@ -42,7 +42,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAm-iE-ZBr" customClass="myButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAm-iE-ZBr">
                                         <rect key="frame" x="0.0" y="88" width="265" height="30"/>
                                         <color key="backgroundColor" red="0.34509803921568627" green="0.74901960784313726" blue="0.88235294117647056" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="로그인">
@@ -80,7 +80,7 @@
                                             <color key="titleColor" red="0.34509803921568627" green="0.74901960784313726" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Bld-6o-cU3" kind="show" id="YCm-y4-bGb"/>
+                                            <segue destination="Bld-6o-cU3" kind="show" identifier="showSignupView" id="YCm-y4-bGb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0j-V8-Ngi">
@@ -140,61 +140,67 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="MIV-av-XAD">
-                                <rect key="frame" x="47" y="86" width="334" height="600"/>
+                                <rect key="frame" x="30" y="86" width="368" height="653"/>
                                 <subviews>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="MhZ-I5-LpM">
-                                        <rect key="frame" x="0.0" y="0.0" width="131.33333333333334" height="600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="653"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 아이디" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9s-s2-Do1">
-                                                <rect key="frame" x="0.0" y="0.0" width="131.33333333333334" height="43.666666666666664"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9s-s2-Do1">
+                                                <rect key="frame" x="0.0" y="0.0" width="92.666666666666671" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 비밀번호" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jK9-qv-nuD">
-                                                <rect key="frame" x="0.0" y="69.666666666666657" width="131.33333333333334" height="43.333333333333343"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jK9-qv-nuD">
+                                                <rect key="frame" x="0.0" y="68" width="92.666666666666671" height="41.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 비밀번호 확인" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTp-0n-sl7">
-                                                <rect key="frame" x="0.0" y="139" width="131.33333333333334" height="43.666666666666657"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTp-0n-sl7">
+                                                <rect key="frame" x="0.0" y="135.66666666666666" width="92.666666666666671" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 이름" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ec6-RA-8ek">
-                                                <rect key="frame" x="0.0" y="208.66666666666669" width="131.33333333333334" height="43.666666666666657"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ec6-RA-8ek">
+                                                <rect key="frame" x="0.0" y="203.66666666666669" width="92.666666666666671" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 닉네임" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lac-5K-7uj">
-                                                <rect key="frame" x="0.0" y="278.33333333333331" width="131.33333333333334" height="43.333333333333314"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lac-5K-7uj">
+                                                <rect key="frame" x="0.0" y="271.66666666666669" width="92.666666666666671" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="학번" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edn-k7-ehM">
-                                                <rect key="frame" x="0.0" y="347.66666666666669" width="131.33333333333334" height="43.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="339.66666666666669" width="92.666666666666671" height="41.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dij-lM-bsI">
-                                                <rect key="frame" x="0.0" y="417.33333333333331" width="131.33333333333334" height="43.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="407.33333333333331" width="92.666666666666671" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 이메일" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L5-7V-zrw">
-                                                <rect key="frame" x="0.0" y="487" width="131.33333333333334" height="43.333333333333371"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L5-7V-zrw">
+                                                <rect key="frame" x="0.0" y="475.33333333333337" width="92.666666666666671" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정보제공 동의" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVe-9a-HcM">
-                                                <rect key="frame" x="0.0" y="556.33333333333337" width="131.33333333333334" height="43.666666666666629"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="질문" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pK5-dF-GGu">
+                                                <rect key="frame" x="0.0" y="543.33333333333337" width="92.666666666666671" height="41.666666666666629"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="답변" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBv-dV-1lf">
+                                                <rect key="frame" x="0.0" y="611" width="92.666666666666671" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -202,63 +208,65 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="kap-tg-gbJ">
-                                        <rect key="frame" x="140.33333333333337" y="0.0" width="193.66666666666663" height="600"/>
+                                        <rect key="frame" x="101.66666666666666" y="0.0" width="266.33333333333337" height="653"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="5자 이상" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ydk-Z8-Cy4" userLabel="idField">
-                                                <rect key="frame" x="0.0" y="0.0" width="193.66666666666666" height="43.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="266.33333333333331" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="특수문자를 포함하는 8자 이상" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="12m-zg-M3w" userLabel="pwField">
-                                                <rect key="frame" x="0.0" y="69.666666666666657" width="193.66666666666666" height="43.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="68" width="266.33333333333331" height="41.666666666666657"/>
                                                 <accessibility key="accessibilityConfiguration" hint="비밀번호는 8자이상 특수문자를 포함합니다."/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHv-z7-Bth" userLabel="pwCheckField">
-                                                <rect key="frame" x="0.0" y="139" width="193.66666666666666" height="43.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="135.66666666666666" width="266.33333333333331" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gZM-g5-8Be" userLabel="nameField">
-                                                <rect key="frame" x="0.0" y="208.66666666666669" width="193.66666666666666" height="43.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="203.66666666666669" width="266.33333333333331" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="29n-fJ-nEE" userLabel="nicknameField">
-                                                <rect key="frame" x="0.0" y="278.33333333333331" width="193.66666666666666" height="43.333333333333314"/>
+                                                <rect key="frame" x="0.0" y="271.66666666666669" width="266.33333333333331" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gba-pQ-pzU" userLabel="studentIdField">
-                                                <rect key="frame" x="0.0" y="347.66666666666669" width="193.66666666666666" height="43.666666666666686"/>
+                                                <rect key="frame" x="0.0" y="339.66666666666669" width="266.33333333333331" height="41.666666666666686"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GB8-LK-Dvk" userLabel="phoneNumberField">
-                                                <rect key="frame" x="0.0" y="417.33333333333331" width="193.66666666666666" height="43.666666666666686"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="01012345678" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GB8-LK-Dvk" userLabel="phoneNumberField">
+                                                <rect key="frame" x="0.0" y="407.33333333333331" width="266.33333333333331" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eoe-p7-TkW" userLabel="emailField">
-                                                <rect key="frame" x="0.0" y="487" width="193.66666666666666" height="43.333333333333371"/>
+                                                <rect key="frame" x="0.0" y="475.33333333333337" width="266.33333333333331" height="42"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="QjY-cY-975" userLabel="termsAgreeSwitch">
-                                                <rect key="frame" x="0.0" y="556.33333333333337" width="195.66666666666666" height="43.666666666666629"/>
-                                            </switch>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYD-Fj-04C" userLabel="questionField">
+                                                <rect key="frame" x="0.0" y="543.33333333333337" width="266.33333333333331" height="41.666666666666629"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DUB-3O-gdS" userLabel="answerField">
+                                                <rect key="frame" x="0.0" y="611" width="266.33333333333331" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                            </textField>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="MIV-av-XAD" secondAttribute="height" multiplier="167:300" id="BJz-3h-DTW"/>
-                                    <constraint firstAttribute="height" constant="600" id="e1x-ls-35L"/>
-                                    <constraint firstAttribute="width" constant="334" id="uhG-ar-2ED"/>
-                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ey3-WU-sc6">
-                                <rect key="frame" x="114" y="718" width="200" height="40"/>
+                                <rect key="frame" x="114" y="771" width="200" height="40"/>
                                 <color key="backgroundColor" red="0.34509803919999998" green="0.74901960779999999" blue="0.88235294119999996" alpha="0.93000000000000005" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0bj-jf-fif"/>
@@ -272,27 +280,38 @@
                                     <action selector="btnSignUp:" destination="Bld-6o-cU3" eventType="touchUpInside" id="Z2b-c9-WfI"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="s9h-ze-LrG">
+                                <rect key="frame" x="195.66666666666666" y="444.66666666666669" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BYJ-uX-6cR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="BYJ-uX-6cR" firstAttribute="bottom" secondItem="Ey3-WU-sc6" secondAttribute="bottom" constant="32" id="025-EX-KJG"/>
                             <constraint firstItem="MIV-av-XAD" firstAttribute="centerX" secondItem="ysr-UG-i5P" secondAttribute="centerX" id="7xm-Ln-Zae"/>
+                            <constraint firstItem="MIV-av-XAD" firstAttribute="leading" secondItem="BYJ-uX-6cR" secondAttribute="leading" constant="30" id="RLA-wq-f5h"/>
                             <constraint firstItem="MIV-av-XAD" firstAttribute="top" secondItem="BYJ-uX-6cR" secondAttribute="top" constant="42" id="Vef-Ml-AO8"/>
+                            <constraint firstItem="BYJ-uX-6cR" firstAttribute="trailing" secondItem="MIV-av-XAD" secondAttribute="trailing" constant="30" id="WuA-Wl-XWE"/>
+                            <constraint firstItem="s9h-ze-LrG" firstAttribute="centerY" secondItem="ysr-UG-i5P" secondAttribute="centerY" id="bT1-W4-qzO"/>
                             <constraint firstItem="Ey3-WU-sc6" firstAttribute="centerX" secondItem="ysr-UG-i5P" secondAttribute="centerX" id="iFm-oA-me2"/>
                             <constraint firstItem="Ey3-WU-sc6" firstAttribute="top" secondItem="MIV-av-XAD" secondAttribute="bottom" constant="32" id="wCg-kl-jXq"/>
+                            <constraint firstItem="s9h-ze-LrG" firstAttribute="centerX" secondItem="ysr-UG-i5P" secondAttribute="centerX" id="yX4-Hr-1O2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5G7-Gk-bWg"/>
                     <connections>
+                        <outlet property="answerField" destination="DUB-3O-gdS" id="j2u-ML-L6e"/>
                         <outlet property="emailField" destination="Eoe-p7-TkW" id="dNH-7x-5gY"/>
                         <outlet property="idField" destination="Ydk-Z8-Cy4" id="2qt-pl-73B"/>
+                        <outlet property="indicatorView" destination="s9h-ze-LrG" id="K7G-bf-SsJ"/>
                         <outlet property="nameField" destination="gZM-g5-8Be" id="Uvm-Qe-dpL"/>
                         <outlet property="nicknameField" destination="29n-fJ-nEE" id="UL3-p9-Vtg"/>
                         <outlet property="phoneNumberField" destination="GB8-LK-Dvk" id="Y5m-2E-FrE"/>
                         <outlet property="pwCheckField" destination="YHv-z7-Bth" id="gTl-6b-UP9"/>
                         <outlet property="pwField" destination="12m-zg-M3w" id="RON-YK-Y5i"/>
+                        <outlet property="questionField" destination="rYD-Fj-04C" id="WiJ-WG-byd"/>
                         <outlet property="studentIdField" destination="Gba-pQ-pzU" id="edy-dp-Ilk"/>
-                        <outlet property="termsAgreeSwitch" destination="QjY-cY-975" id="c9p-nH-Eb6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwT-kn-RxL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
