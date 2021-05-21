@@ -36,9 +36,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     var data = true
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         sePickerView()
         dismissPickerView()
-        super.viewDidLoad()
         
         self.view.bringSubviewToFront(self.indicatorView)
         hideKeyboard()

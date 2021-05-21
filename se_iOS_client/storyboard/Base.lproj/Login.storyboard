@@ -48,6 +48,9 @@
                                         <state key="normal" title="로그인">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N7j-0a-Riq"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="p8m-oG-x0r">
                                         <rect key="frame" x="0.0" y="128" width="265" height="30"/>
@@ -95,6 +98,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="P3f-Pz-7h0">
+                                <rect key="frame" x="195.66666666666666" y="444.66666666666669" width="37" height="37"/>
+                                <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -103,6 +110,8 @@
                             <constraint firstItem="Xtg-TT-B5l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="Pb6-KC-RS2"/>
                             <constraint firstItem="SXv-u6-P2L" firstAttribute="top" secondItem="Xtg-TT-B5l" secondAttribute="bottom" constant="45" id="VTZ-eq-JwD"/>
                             <constraint firstItem="SXv-u6-P2L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YD9-K2-KjG"/>
+                            <constraint firstItem="P3f-Pz-7h0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rTe-t3-K28"/>
+                            <constraint firstItem="P3f-Pz-7h0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vtZ-ws-mMV"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -114,6 +123,7 @@
                         <outlet property="btnLogin" destination="cAm-iE-ZBr" id="OEg-PP-9e8"/>
                         <outlet property="btnSignUp" destination="CLE-c9-9JL" id="Fot-tc-D7u"/>
                         <outlet property="idTextField" destination="DMC-b3-cwt" id="FV8-oE-4os"/>
+                        <outlet property="indicatorView" destination="P3f-Pz-7h0" id="OHJ-AM-uJW"/>
                         <outlet property="passwordTextField" destination="pkr-W9-n9S" id="VYB-HX-ky8"/>
                     </connections>
                 </viewController>

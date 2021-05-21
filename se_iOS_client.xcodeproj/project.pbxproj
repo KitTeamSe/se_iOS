@@ -24,6 +24,7 @@
 		AFA64B43260A1AEC001AB94F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFA64B42260A1AEC001AB94F /* Assets.xcassets */; };
 		AFA64B46260A1AEC001AB94F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA64B44260A1AEC001AB94F /* LaunchScreen.storyboard */; };
 		AFAE06C32656AE13000414CC /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAE06C22656AE13000414CC /* SearchTableViewCell.swift */; };
+		AFCC261B26581F910005B4F5 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCC261A26581F910005B4F5 /* UserInfoManager.swift */; };
 		AFF4D6812618D58100C06FFB /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF4D6802618D58100C06FFB /* Account.swift */; };
 		AFF4D68C2618F3F800C06FFB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF4D68B2618F3F800C06FFB /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		AFA64B45260A1AEC001AB94F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFA64B47260A1AEC001AB94F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFAE06C22656AE13000414CC /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		AFCC261A26581F910005B4F5 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		AFF4D6802618D58100C06FFB /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		AFF4D68B2618F3F800C06FFB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CCDE8C8310F13F7B9BDF4B7D /* Pods-se_iOS_client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-se_iOS_client.debug.xcconfig"; path = "Target Support Files/Pods-se_iOS_client/Pods-se_iOS_client.debug.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				AF62E5452656DC5F0045A8A8 /* Utils.swift */,
+				AFCC261A26581F910005B4F5 /* UserInfoManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			files = (
 				AF0DE56F26544E1400C5E36F /* SearchViewController.swift in Sources */,
 				AFF4D68C2618F3F800C06FFB /* SignUpViewController.swift in Sources */,
+				AFCC261B26581F910005B4F5 /* UserInfoManager.swift in Sources */,
 				AF0DE56B2654486900C5E36F /* FreeboardViewController.swift in Sources */,
 				AF62E5462656DC5F0045A8A8 /* Utils.swift in Sources */,
 				AF1FB8CB2618B1650026E7BA /* LoginViewController.swift in Sources */,

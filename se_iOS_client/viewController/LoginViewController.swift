@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelegate {
     
+    //View
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var btnFindId: UIButton!
@@ -16,22 +18,65 @@ class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelega
     @IBOutlet weak var btnGuest: UIButton!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     let seColor = #colorLiteral(red: 0.3450980392, green: 0.7490196078, blue: 0.8823529412, alpha: 1)
-    
     var radius: CGFloat!
     var borderWidth: CGFloat!
     
+    let uinfo = UserInfoManager()
+    var isCalling = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setRadius(radius: 4)
         setBorderColor()
         setBorderWidth(borderWidth: 1)
         
+        // 키 체인 저장 여부 확인을 위한 임시 코드
+        let tk = TokenUtils()
+        if let accessToken = tk.load("kr.co.rubypaper.MyMemory", account: "accessToken") {
+            print("accessToken = \(accessToken)")
+        } else {
+            print("accessToken is nil")
+        }
+        if let refreshToken = tk.load("kr.co.rubypaper.MyMemory", account: "refreshToken") {
+            print("refreshToken = \(refreshToken)")
+        } else {
+            print("refreshToken is nil")
+        }
+        
+        self.view.bringSubviewToFront(self.indicatorView)
         hideKeyboard()
     }
-   
+    
+    @IBAction func btnLogin(_ sender: Any) {
+        if self.isCalling == true {
+            self.alert("응답을 기다리는 중입니다. \n잠시만 기다려 주세요.")
+            return
+        } else {
+            self.isCalling = true
+        }
+        self.indicatorView.startAnimating()
+        self.isCalling = false
+        let id: String = self.idTextField.text!
+        let pw: String = self.passwordTextField.text!
+        
+        self.uinfo.login(id: id, pw: pw, success: {
+            self.indicatorView.stopAnimating()
+            //성공 시 다음 화면 띄우기(세그웨이)
+            self.alert("로그인 성공")
+            
+        }, fail: { msg in
+            self.indicatorView.stopAnimating()
+            self.isCalling = false
+            self.alert(msg)
+        })
+    }
+    
+    
+    
     func setRadius(radius: CGFloat) {
         btnLogin.layer.cornerRadius = radius
         btnSignUp.layer.cornerRadius = radius
