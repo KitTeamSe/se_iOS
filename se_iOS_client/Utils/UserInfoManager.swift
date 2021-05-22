@@ -45,12 +45,19 @@ class UserInfoManager {
             if jsonObject["code"] is Int{
                 let resultCode = jsonObject["code"] as! Int
                 if resultCode == 200 {
-                    let accessToken = jsonObject["access_token"] as! String
-                    let refreshToken = jsonObject["refresh_token"] as! String
+                    
+                    let temp = jsonObject["data"] as? NSDictionary
+                    let accessToken = temp?.value(forKey: "token") as! String
                     
                     let tk = TokenUtils()
                     tk.save("kit.cs.ailab.syonKim.se-iOS-client", account: "accessToken", value: accessToken)
-                    tk.save("kit.cs.ailab.syonKim.se-iOS-client", account: "refreshToken", value: refreshToken)
+                    
+                    //AccessToken 잘 왔나 확인
+                    if let accessToken = tk.load("kit.cs.ailab.syonKim.se-iOS-client", account: "accessToken") {
+                        print("accessToken = \(accessToken)")
+                    } else {
+                        print("accessToken is nil")
+                    }
                     
                     success?()
                 }

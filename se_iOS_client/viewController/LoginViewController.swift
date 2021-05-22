@@ -41,11 +41,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelega
         } else {
             print("accessToken is nil")
         }
-        if let refreshToken = tk.load("kr.co.rubypaper.MyMemory", account: "refreshToken") {
-            print("refreshToken = \(refreshToken)")
-        } else {
-            print("refreshToken is nil")
-        }
         
         self.view.bringSubviewToFront(self.indicatorView)
         hideKeyboard()
