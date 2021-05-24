@@ -8,17 +8,20 @@
 import UIKit
 import Alamofire
 
-class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelegate {
+
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //View
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
+    @IBOutlet weak var btnAutoLogin: UIButton!
     @IBOutlet weak var btnFindId: UIButton!
-    @IBOutlet weak var btnFindPassword: UIButton!
     @IBOutlet weak var btnGuest: UIButton!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var btnCheckBox: UIButton!
+    
     
     let seColor = #colorLiteral(red: 0.3450980392, green: 0.7490196078, blue: 0.8823529412, alpha: 1)
     var radius: CGFloat!
@@ -26,6 +29,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelega
     
     let uinfo = UserInfoManager()
     var isCalling = false
+    var isCheck = false
+    var isLogin = false
+    
+    
+    let temp = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +41,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelega
         setRadius(radius: 4)
         setBorderColor()
         setBorderWidth(borderWidth: 1)
+        imageTintColorSettings()
         
+        if let autoId = UserDefaults.standard.string(forKey: "loginId") {
+            self.uinfo.login(id: autoId, pw: UserDefaults.standard.string(forKey: "loginPw")!, success: {
+                self.indicatorView.stopAnimating()
+                                
+                self.isLogin = true
+
+                self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                
+            }, fail: { msg in
+                self.indicatorView.stopAnimating()
+                self.isCalling = false
+                self.alert(msg)
+            })
+        }
+
         // 키 체인 저장 여부 확인을 위한 임시 코드
-        let tk = TokenUtils()
-        if let accessToken = tk.load("kr.co.rubypaper.MyMemory", account: "accessToken") {
+       /* let tk = TokenUtils()
+        if let accessToken = tk.load("kit.cs.ailab.syonKim.se-iOS-client", account: "accessToken") {
             print("accessToken = \(accessToken)")
         } else {
             print("accessToken is nil")
-        }
+        } */
         
         self.view.bringSubviewToFront(self.indicatorView)
         hideKeyboard()
@@ -60,8 +85,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelega
         
         self.uinfo.login(id: id, pw: pw, success: {
             self.indicatorView.stopAnimating()
-            //성공 시 다음 화면 띄우기(세그웨이)
-            self.alert("로그인 성공")
+            
+            UserDefaults.standard.set(id, forKey: "loginId")
+            UserDefaults.standard.set(pw, forKey: "loginPw")
+            
+            self.isLogin = true
+
+            self.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
             
         }, fail: { msg in
             self.indicatorView.stopAnimating()
@@ -69,14 +100,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelega
             self.alert(msg)
         })
     }
+
+    @IBAction func btnAutoLogin(_ sender: Any) {
+
+        if isCheck == false {
+            let image = UIImage(named: "checkbox.svg")?.withRenderingMode(.alwaysTemplate)
+            btnCheckBox.setBackgroundImage(image, for: .normal)
+            isCheck = true
+        } else if isCheck == true {
+            let image = UIImage(named: "box.svg")?.withRenderingMode(.alwaysTemplate)
+            btnCheckBox.setBackgroundImage(image, for: .normal)
+            isCheck = false
+        }
+    }
     
     
     
     func setRadius(radius: CGFloat) {
         btnLogin.layer.cornerRadius = radius
         btnSignUp.layer.cornerRadius = radius
+        btnAutoLogin.layer.cornerRadius = radius
         btnFindId.layer.cornerRadius = radius
-        btnFindPassword.layer.cornerRadius = radius
         btnGuest.layer.cornerRadius = radius
         
     }
@@ -84,8 +128,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelega
     func setBorderColor(){
         btnLogin.layer.borderColor = seColor.cgColor
         btnSignUp.layer.borderColor = seColor.cgColor
+        btnAutoLogin.layer.borderColor = seColor.cgColor
         btnFindId.layer.borderColor = seColor.cgColor
-        btnFindPassword.layer.borderColor = seColor.cgColor
         btnGuest.layer.borderColor = seColor.cgColor
     }
     
@@ -93,20 +137,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate, sendBackDelega
         btnLogin.layer.borderWidth = borderWidth
         btnSignUp.layer.borderWidth = borderWidth
         btnFindId.layer.borderWidth = borderWidth
-        btnFindPassword.layer.borderWidth = borderWidth
         btnGuest.layer.borderWidth = borderWidth
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showSignupView" {
-            let signUpVC = segue.destination as! SignUpViewController
-            signUpVC.data = true
-            signUpVC.delegate = self
-        }
+    func imageTintColorSettings() {
+        let image = UIImage(named: "box.svg")?.withRenderingMode(.alwaysTemplate)
+        btnCheckBox.setBackgroundImage(image, for: .normal)
+        
+        let image2 = UIImage(named: "checkbox.svg")?.withRenderingMode(.alwaysTemplate)
+        btnCheckBox.setBackgroundImage(image2, for: .selected)
+        
+        btnCheckBox.tintColor = seColor
     }
     
-    func dataReceived(data: Bool) {
-        self.alert("정상적으로 가입이 완료되었습니다.")
-    }
-    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let tabBarController = segue.destination as? TabBarController else { return }
+        tabBarController.isLogin = self.isLogin
+    }*/
 }

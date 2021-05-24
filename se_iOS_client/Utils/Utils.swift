@@ -19,6 +19,21 @@ extension UIViewController {
             self.present(alert, animated: false)
         }
     }
+    
+    func dismissAlert(_ message: String, completion: (()->Void)? = nil) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .cancel) { (action) -> Void in
+                self.okClick()
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: false)
+        }
+    }
+    
+    func okClick() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 func hexStringToUIColor (hex:String) -> UIColor {

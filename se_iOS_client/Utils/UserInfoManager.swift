@@ -10,16 +10,14 @@ import Alamofire
 
 struct UserInfoKey {
     static let loginId = "ID"
-    static let name = "NAME"
-    
 }
 
 class UserInfoManager {
-    var loginId: Int {
+    var loginId: String? {
         get {
-            return UserDefaults.standard.integer(forKey: UserInfoKey.loginId)
+            return UserDefaults.standard.string(forKey: UserInfoKey.loginId)
         }
-        set(v) {
+        set (v) {
             let ud = UserDefaults.standard
             ud.set(v, forKey: UserInfoKey.loginId)
             ud.synchronize()
@@ -45,6 +43,11 @@ class UserInfoManager {
             if jsonObject["code"] is Int{
                 let resultCode = jsonObject["code"] as! Int
                 if resultCode == 200 {
+                    
+                    let ud = UserDefaults.standard
+                    
+                    ud.set(id, forKey: "loginId")
+                    print(ud.string(forKey: "loginId")!)
                     
                     let temp = jsonObject["data"] as? NSDictionary
                     let accessToken = temp?.value(forKey: "token") as! String

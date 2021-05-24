@@ -8,9 +8,7 @@
 import UIKit
 import Alamofire
 
-protocol sendBackDelegate {
-    func dataReceived(data: Bool)
-}
+
 
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -32,8 +30,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     var checkForm: Bool!
     var questionId: Int64!
     var isCalling = false
-    var delegate : sendBackDelegate?
-    var data = true
+    var done: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +47,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         self.indicatorView.startAnimating()
         isCalling = false
         
+        done = false
         let id: String = self.idField.text!
         let pw: String = self.pwField.text!
         let pwCheck: String = self.pwCheckField.text!
@@ -120,8 +118,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                 if jsonObject["code"] is Int {
                     let resultCode = jsonObject["code"] as! Int
                     if resultCode == 201 {
-                        self.delegate?.dataReceived(data: true)
-                        self.dismiss(animated: true, completion: nil)
+                        self.dismissAlert("회원가입에 성공하였습니다.")
                     }
                 } else {
                     self.isCalling = false
@@ -204,6 +201,5 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let studentIdTest = NSPredicate(format: "SELF MATCHES %@", studentIdRegEx)
         return studentIdTest.evaluate(with: studentId)
     }
-
-
+    
 }

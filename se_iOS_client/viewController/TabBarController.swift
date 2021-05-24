@@ -7,14 +7,22 @@
 
 import UIKit
 
+
 class TabBarController: UITabBarController {
+
+    
 
     lazy var seColor = hexStringToUIColor(hex: "#58BFE1")
     lazy var nonClickColor = hexStringToUIColor(hex: "#E2E2E2")
     
+    //var isLogin: Bool!
+    //let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-
+    
     override func viewDidLoad() {
+        
+        //appDelegate.isLogin = self.isLogin
+        
         
         self.selectedIndex = 2;
 
@@ -37,5 +45,11 @@ class TabBarController: UITabBarController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+
 }
 

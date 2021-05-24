@@ -14,7 +14,6 @@
 		AF0DE57126544E2100C5E36F /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DE57026544E2100C5E36F /* MypageViewController.swift */; };
 		AF0DE57326544E2A00C5E36F /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DE57226544E2A00C5E36F /* AlarmViewController.swift */; };
 		AF1FB8CB2618B1650026E7BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FB8CA2618B1650026E7BA /* LoginViewController.swift */; };
-		AF4E9089263FF70300DE02C3 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4E9088263FF70300DE02C3 /* TabBar.storyboard */; };
 		AF4E908B264000DB00DE02C3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E908A264000DB00DE02C3 /* TabBarController.swift */; };
 		AF62E5462656DC5F0045A8A8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62E5452656DC5F0045A8A8 /* Utils.swift */; };
 		AFA64B37260A1AEC001AB94F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA64B36260A1AEC001AB94F /* AppDelegate.swift */; };
@@ -38,7 +37,6 @@
 		AF0DE57026544E2100C5E36F /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		AF0DE57226544E2A00C5E36F /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		AF1FB8CA2618B1650026E7BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		AF4E9088263FF70300DE02C3 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		AF4E908A264000DB00DE02C3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AF62E5452656DC5F0045A8A8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		AFA64B33260A1AEC001AB94F /* se_iOS_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = se_iOS_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				AFA64B3C260A1AEC001AB94F /* Login.storyboard */,
-				AF4E9088263FF70300DE02C3 /* TabBar.storyboard */,
 				AFA64B44260A1AEC001AB94F /* LaunchScreen.storyboard */,
 			);
 			path = storyboard;
@@ -232,7 +229,6 @@
 				AFA64B46260A1AEC001AB94F /* LaunchScreen.storyboard in Resources */,
 				AFA64B43260A1AEC001AB94F /* Assets.xcassets in Resources */,
 				AFA64B3E260A1AEC001AB94F /* Login.storyboard in Resources */,
-				AF4E9089263FF70300DE02C3 /* TabBar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

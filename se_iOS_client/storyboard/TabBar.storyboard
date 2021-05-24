@@ -135,7 +135,7 @@
                                     <navigationItem title="FreeBoard" id="VkU-d0-zKL">
                                         <barButtonItem key="leftBarButtonItem" title="로그인" id="aIh-4h-Wop">
                                             <connections>
-                                                <action selector="btnPrevious:" destination="KGb-vc-tNr" id="ghd-M3-JSV"/>
+                                                <action selector="btnLoginLogout:" destination="KGb-vc-tNr" id="hAZ-wI-4sS"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="wry-rj-kAq"/>
@@ -161,6 +161,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="홈" image="Home" id="hS0-97-iQg"/>
                     <connections>
+                        <outlet property="btnLoginLogout" destination="aIh-4h-Wop" id="3Yg-AU-c9G"/>
                         <outlet property="postTableView" destination="ucy-aT-Bz2" id="IIc-Bo-9xd"/>
                     </connections>
                 </viewController>
