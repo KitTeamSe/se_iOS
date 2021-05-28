@@ -118,10 +118,11 @@ class TokenUtils {
     
     // 키 체인에 저장된 액세스 토큰을 이용하여 헤더를 만들어주는 메소드
     func getAuthorizationHeader() -> HTTPHeaders? {
-        let serviceID = "kr.co.rubypaper.MyMemory"
+        let serviceID = "kit.cs.ailab.syonKim.se-iOS-client"
         if let accessToken = self.load(serviceID, account: "accessToken") {
-            return [ "Authorization" : "Bearer \(accessToken)"] as HTTPHeaders
+            return [ "X-AUTH-TOKEN" : "\(accessToken)"] as HTTPHeaders
         } else {
+            print("헤더를 가져오는데 문제가 발생했습니다.")
             return nil
         }
     }

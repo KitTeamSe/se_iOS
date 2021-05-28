@@ -35,8 +35,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sePickerView()
-        dismissPickerView()
+        createSignupQuestionPicker()
+        createToolBar()
         
         self.view.bringSubviewToFront(self.indicatorView)
         hideKeyboard()
@@ -123,31 +123,32 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                 } else {
                     self.isCalling = false
                     let errorMsg = jsonObject["message"] as! String
-                    self.alert("오류 : \(errorMsg)")
+                    self.alert("\(errorMsg)")
                 }
             }
         }
     }
     
-    @objc func pickerExit() {
-        self.view.endEditing(true)
+    func createSignupQuestionPicker() {
+        let signupQuestionPicker = UIPickerView()
+        signupQuestionPicker.delegate = self
+        signupQuestionPicker.dataSource = self
+        questionField.inputView = signupQuestionPicker
+        signupQuestionPicker.selectRow(0, inComponent: 0, animated: true)
     }
     
-    func sePickerView() {
-        let sePicker = UIPickerView()
-        sePicker.delegate = self
-        questionField.inputView = sePicker
-    }
-    
-    func dismissPickerView() {
-        let toolBar = UIToolbar(frame: CGRect(x:0, y:0, width:0, height:100))
+    func createToolBar() {
+        let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(pickerExit))
-        toolBar.setItems([button], animated: true)
-        toolBar.isUserInteractionEnabled = true
+        let doneBtn = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(dismissKeyboard))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        toolBar.setItems([flexibleSpace, doneBtn], animated: false)
         questionField.inputAccessoryView = toolBar
-        
+        toolBar.updateConstraintsIfNeeded()
+
     }
+    
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

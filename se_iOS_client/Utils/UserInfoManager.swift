@@ -40,8 +40,8 @@ class UserInfoManager {
                 fail?("오류:\(result)")
                 return
             }
-            if jsonObject["code"] is Int{
-                let resultCode = jsonObject["code"] as! Int
+            if jsonObject["status"] is Int{
+                let resultCode = jsonObject["status"] as! Int
                 if resultCode == 200 {
                     
                     let ud = UserDefaults.standard
@@ -63,10 +63,10 @@ class UserInfoManager {
                     }
                     
                     success?()
+                } else {
+                    let msg = (jsonObject["message"] as? String) ?? "로그인 실패"
+                    fail?(msg)
                 }
-            } else if jsonObject["code"] is String {
-                let msg = (jsonObject["message"] as? String) ?? "로그인 실패"
-                fail?(msg)
             }
         }
     }

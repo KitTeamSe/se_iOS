@@ -42,13 +42,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setBorderColor()
         setBorderWidth(borderWidth: 1)
         imageTintColorSettings()
+        print("a")
+        
+        
         
         if let autoId = UserDefaults.standard.string(forKey: "loginId") {
             self.uinfo.login(id: autoId, pw: UserDefaults.standard.string(forKey: "loginPw")!, success: {
                 self.indicatorView.stopAnimating()
-                                
+                
                 self.isLogin = true
-
+                
                 self.dismiss(animated: true, completion: nil)
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
                 
@@ -57,15 +60,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.isCalling = false
                 self.alert(msg)
             })
+            
         }
-
+        
         // 키 체인 저장 여부 확인을 위한 임시 코드
-       /* let tk = TokenUtils()
-        if let accessToken = tk.load("kit.cs.ailab.syonKim.se-iOS-client", account: "accessToken") {
-            print("accessToken = \(accessToken)")
-        } else {
-            print("accessToken is nil")
-        } */
+        /* let tk = TokenUtils()
+         if let accessToken = tk.load("kit.cs.ailab.syonKim.se-iOS-client", account: "accessToken") {
+         print("accessToken = \(accessToken)")
+         } else {
+         print("accessToken is nil")
+         } */
         
         self.view.bringSubviewToFront(self.indicatorView)
         hideKeyboard()
@@ -78,8 +82,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             self.isCalling = true
         }
+        
         self.indicatorView.startAnimating()
         self.isCalling = false
+        
         let id: String = self.idTextField.text!
         let pw: String = self.passwordTextField.text!
         
@@ -90,7 +96,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             UserDefaults.standard.set(pw, forKey: "loginPw")
             
             self.isLogin = true
-
             self.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "loginSegue", sender: self)
             
@@ -100,9 +105,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.alert(msg)
         })
     }
-
+    
     @IBAction func btnAutoLogin(_ sender: Any) {
-
+        
         if isCheck == false {
             let image = UIImage(named: "checkbox.svg")?.withRenderingMode(.alwaysTemplate)
             btnCheckBox.setBackgroundImage(image, for: .normal)
@@ -122,7 +127,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         btnAutoLogin.layer.cornerRadius = radius
         btnFindId.layer.cornerRadius = radius
         btnGuest.layer.cornerRadius = radius
-        
     }
     
     func setBorderColor(){
@@ -151,7 +155,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let tabBarController = segue.destination as? TabBarController else { return }
-        tabBarController.isLogin = self.isLogin
-    }*/
+     guard let tabBarController = segue.destination as? TabBarController else { return }
+     tabBarController.isLogin = self.isLogin
+     }*/
+    
 }

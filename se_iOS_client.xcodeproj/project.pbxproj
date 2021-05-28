@@ -16,6 +16,9 @@
 		AF1FB8CB2618B1650026E7BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FB8CA2618B1650026E7BA /* LoginViewController.swift */; };
 		AF4E908B264000DB00DE02C3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E908A264000DB00DE02C3 /* TabBarController.swift */; };
 		AF62E5462656DC5F0045A8A8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62E5452656DC5F0045A8A8 /* Utils.swift */; };
+		AF9554CF265D182500BCBBA5 /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9554CE265D182500BCBBA5 /* PostFormViewController.swift */; };
+		AF9554D1265D45F100BCBBA5 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9554D0265D45F100BCBBA5 /* PostTableViewCell.swift */; };
+		AF9554D3265D47AC00BCBBA5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9554D2265D47AC00BCBBA5 /* Post.swift */; };
 		AFA64B37260A1AEC001AB94F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA64B36260A1AEC001AB94F /* AppDelegate.swift */; };
 		AFA64B39260A1AEC001AB94F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA64B38260A1AEC001AB94F /* SceneDelegate.swift */; };
 		AFA64B3E260A1AEC001AB94F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA64B3C260A1AEC001AB94F /* Login.storyboard */; };
@@ -24,7 +27,6 @@
 		AFA64B46260A1AEC001AB94F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA64B44260A1AEC001AB94F /* LaunchScreen.storyboard */; };
 		AFAE06C32656AE13000414CC /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAE06C22656AE13000414CC /* SearchTableViewCell.swift */; };
 		AFCC261B26581F910005B4F5 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCC261A26581F910005B4F5 /* UserInfoManager.swift */; };
-		AFF4D6812618D58100C06FFB /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF4D6802618D58100C06FFB /* Account.swift */; };
 		AFF4D68C2618F3F800C06FFB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF4D68B2618F3F800C06FFB /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,9 @@
 		AF1FB8CA2618B1650026E7BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AF4E908A264000DB00DE02C3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AF62E5452656DC5F0045A8A8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		AF9554CE265D182500BCBBA5 /* PostFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
+		AF9554D0265D45F100BCBBA5 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		AF9554D2265D47AC00BCBBA5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		AFA64B33260A1AEC001AB94F /* se_iOS_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = se_iOS_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA64B36260A1AEC001AB94F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFA64B38260A1AEC001AB94F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,7 +54,6 @@
 		AFA64B47260A1AEC001AB94F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFAE06C22656AE13000414CC /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		AFCC261A26581F910005B4F5 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
-		AFF4D6802618D58100C06FFB /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		AFF4D68B2618F3F800C06FFB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CCDE8C8310F13F7B9BDF4B7D /* Pods-se_iOS_client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-se_iOS_client.debug.xcconfig"; path = "Target Support Files/Pods-se_iOS_client/Pods-se_iOS_client.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,7 +81,7 @@
 		AF1FB8CE2618C4100026E7BA /* model */ = {
 			isa = PBXGroup;
 			children = (
-				AFF4D6802618D58100C06FFB /* Account.swift */,
+				AF9554D2265D47AC00BCBBA5 /* Post.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -102,6 +106,7 @@
 				AF0DE56E26544E1400C5E36F /* SearchViewController.swift */,
 				AF0DE57026544E2100C5E36F /* MypageViewController.swift */,
 				AF0DE57226544E2A00C5E36F /* AlarmViewController.swift */,
+				AF9554CE265D182500BCBBA5 /* PostFormViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				AFAE06C22656AE13000414CC /* SearchTableViewCell.swift */,
+				AF9554D0265D45F100BCBBA5 /* PostTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -283,17 +289,19 @@
 			files = (
 				AF0DE56F26544E1400C5E36F /* SearchViewController.swift in Sources */,
 				AFF4D68C2618F3F800C06FFB /* SignUpViewController.swift in Sources */,
+				AF9554D1265D45F100BCBBA5 /* PostTableViewCell.swift in Sources */,
 				AFCC261B26581F910005B4F5 /* UserInfoManager.swift in Sources */,
+				AF9554CF265D182500BCBBA5 /* PostFormViewController.swift in Sources */,
 				AF0DE56B2654486900C5E36F /* FreeboardViewController.swift in Sources */,
 				AF62E5462656DC5F0045A8A8 /* Utils.swift in Sources */,
 				AF1FB8CB2618B1650026E7BA /* LoginViewController.swift in Sources */,
 				AFA64B37260A1AEC001AB94F /* AppDelegate.swift in Sources */,
 				AF0DE56D26544E0600C5E36F /* MenuViewController.swift in Sources */,
 				AFA64B41260A1AEC001AB94F /* se_iOS_client.xcdatamodeld in Sources */,
+				AF9554D3265D47AC00BCBBA5 /* Post.swift in Sources */,
 				AF4E908B264000DB00DE02C3 /* TabBarController.swift in Sources */,
 				AFAE06C32656AE13000414CC /* SearchTableViewCell.swift in Sources */,
 				AF0DE57326544E2A00C5E36F /* AlarmViewController.swift in Sources */,
-				AFF4D6812618D58100C06FFB /* Account.swift in Sources */,
 				AFA64B39260A1AEC001AB94F /* SceneDelegate.swift in Sources */,
 				AF0DE57126544E2100C5E36F /* MypageViewController.swift in Sources */,
 			);
