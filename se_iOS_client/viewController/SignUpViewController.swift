@@ -39,6 +39,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         createToolBar()
         
         self.view.bringSubviewToFront(self.indicatorView)
+        alert("회원가입을 진행하시면 기본적으로 정보제공에 동의하시게 됩니다. 수정하시려면 회원가입 후 마이페이지 탭에서 변경해주세요.")
         hideKeyboard()
         // Do any additional setup after loading the view.
     }
@@ -102,7 +103,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                 "phoneNumber"   : phoneNumber,
                 "questionId"    : questionId!,
                 "studentId"     : studentId,
-                "type"          : "STUDENT"
+                "type"          : "STUDENT",
+                "informationOpenAgree" : "AGREE"
             ]
             let url = "http://swagger.se-testboard.duckdns.org/api/v1/signup"
             let call = AF.request(url, method: HTTPMethod.post, parameters: param, encoding: JSONEncoding.default)
@@ -119,11 +121,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                     let resultCode = jsonObject["code"] as! Int
                     if resultCode == 201 {
                         self.dismissAlert("회원가입에 성공하였습니다.")
+                    } else {
+                        self.isCalling = false
+                        let errorMsg = jsonObject["message"] as! String
+                        self.alert("\(errorMsg)")
                     }
-                } else {
-                    self.isCalling = false
-                    let errorMsg = jsonObject["message"] as! String
-                    self.alert("\(errorMsg)")
                 }
             }
         }

@@ -152,11 +152,5 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         btnCheckBox.setBackgroundImage(image2, for: .selected)
         
         btnCheckBox.tintColor = seColor
-    }
-    
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     guard let tabBarController = segue.destination as? TabBarController else { return }
-     tabBarController.isLogin = self.isLogin
-     }*/
-    
+    }    
 }

@@ -16,6 +16,10 @@
 		AF1FB8CB2618B1650026E7BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FB8CA2618B1650026E7BA /* LoginViewController.swift */; };
 		AF4E908B264000DB00DE02C3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E908A264000DB00DE02C3 /* TabBarController.swift */; };
 		AF62E5462656DC5F0045A8A8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62E5452656DC5F0045A8A8 /* Utils.swift */; };
+		AF8708962662C0DE005E7A43 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8708952662C0DE005E7A43 /* Account.swift */; };
+		AF8708982662C373005E7A43 /* PostReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8708972662C373005E7A43 /* PostReadViewController.swift */; };
+		AF87089A26633D6B005E7A43 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF87089926633D6B005E7A43 /* Tag.swift */; };
+		AF87089C266340A7005E7A43 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF87089B266340A7005E7A43 /* TagTableViewCell.swift */; };
 		AF9554CF265D182500BCBBA5 /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9554CE265D182500BCBBA5 /* PostFormViewController.swift */; };
 		AF9554D1265D45F100BCBBA5 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9554D0265D45F100BCBBA5 /* PostTableViewCell.swift */; };
 		AF9554D3265D47AC00BCBBA5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9554D2265D47AC00BCBBA5 /* Post.swift */; };
@@ -41,6 +45,10 @@
 		AF1FB8CA2618B1650026E7BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AF4E908A264000DB00DE02C3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AF62E5452656DC5F0045A8A8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		AF8708952662C0DE005E7A43 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		AF8708972662C373005E7A43 /* PostReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReadViewController.swift; sourceTree = "<group>"; };
+		AF87089926633D6B005E7A43 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		AF87089B266340A7005E7A43 /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		AF9554CE265D182500BCBBA5 /* PostFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
 		AF9554D0265D45F100BCBBA5 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		AF9554D2265D47AC00BCBBA5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -82,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				AF9554D2265D47AC00BCBBA5 /* Post.swift */,
+				AF8708952662C0DE005E7A43 /* Account.swift */,
+				AF87089926633D6B005E7A43 /* Tag.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -107,6 +117,7 @@
 				AF0DE57026544E2100C5E36F /* MypageViewController.swift */,
 				AF0DE57226544E2A00C5E36F /* AlarmViewController.swift */,
 				AF9554CE265D182500BCBBA5 /* PostFormViewController.swift */,
+				AF8708972662C373005E7A43 /* PostReadViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -160,6 +171,7 @@
 			children = (
 				AFAE06C22656AE13000414CC /* SearchTableViewCell.swift */,
 				AF9554D0265D45F100BCBBA5 /* PostTableViewCell.swift */,
+				AF87089B266340A7005E7A43 /* TagTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -292,15 +304,19 @@
 				AF9554D1265D45F100BCBBA5 /* PostTableViewCell.swift in Sources */,
 				AFCC261B26581F910005B4F5 /* UserInfoManager.swift in Sources */,
 				AF9554CF265D182500BCBBA5 /* PostFormViewController.swift in Sources */,
+				AF8708982662C373005E7A43 /* PostReadViewController.swift in Sources */,
+				AF8708962662C0DE005E7A43 /* Account.swift in Sources */,
 				AF0DE56B2654486900C5E36F /* FreeboardViewController.swift in Sources */,
 				AF62E5462656DC5F0045A8A8 /* Utils.swift in Sources */,
 				AF1FB8CB2618B1650026E7BA /* LoginViewController.swift in Sources */,
 				AFA64B37260A1AEC001AB94F /* AppDelegate.swift in Sources */,
 				AF0DE56D26544E0600C5E36F /* MenuViewController.swift in Sources */,
+				AF87089A26633D6B005E7A43 /* Tag.swift in Sources */,
 				AFA64B41260A1AEC001AB94F /* se_iOS_client.xcdatamodeld in Sources */,
 				AF9554D3265D47AC00BCBBA5 /* Post.swift in Sources */,
 				AF4E908B264000DB00DE02C3 /* TabBarController.swift in Sources */,
 				AFAE06C32656AE13000414CC /* SearchTableViewCell.swift in Sources */,
+				AF87089C266340A7005E7A43 /* TagTableViewCell.swift in Sources */,
 				AF0DE57326544E2A00C5E36F /* AlarmViewController.swift in Sources */,
 				AFA64B39260A1AEC001AB94F /* SceneDelegate.swift in Sources */,
 				AF0DE57126544E2100C5E36F /* MypageViewController.swift in Sources */,

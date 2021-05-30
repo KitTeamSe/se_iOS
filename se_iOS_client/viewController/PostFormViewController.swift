@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     @IBOutlet weak var titleField: UITextField!
     
     @IBOutlet weak var btnBold: UIButton!
@@ -34,6 +34,8 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var btnSubmit: UIButton!
     
+    var delegate: SendDataDelegate?
+    
     let seColor = #colorLiteral(red: 0.3450980392, green: 0.7490196078, blue: 0.8823529412, alpha: 1)
     var radius: CGFloat!
     var borderWidth: CGFloat!
@@ -42,9 +44,10 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var isLogin : Bool?
     
     var tagList: [String] = []
-    var tagId: Int?
+    var tagId: Int = 0
     
-    
+    var isValid: Bool = false
+        
     override func viewDidLoad() {
         isCheck = false
         
@@ -209,7 +212,7 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                             self.tagList.append(temp)
                         }
                     }
-        
+                    
                     success?()
                 } else {
                     let msg = (jsonObject["message"] as? String) ?? "게시글 불러오기 실패"
@@ -219,6 +222,90 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             }
         }
     }
+    @IBAction func btnSubmit(_ sender: Any) {
+        if checkIsValid() == true {
+            let post = Post()
+            let param: Parameters?
+            post.anonymousNickname = anonymousNickname.text!
+            post.anonymousPassword = anonymousPassword.text!
+            post.title = titleField.text!
+            post.text = textField.text!
+            if isCheck == false {
+                post.isSecret = "NORMAL"
+            } else {
+                post.isSecret = "SECRET"
+            }
+            if tagId != 0 {
+                post.tagId = tagId
+                
+            }
+            
+            let url = "http://swagger.se-testboard.duckdns.org/api/v1/post"
+            
+            if tagId != 0 {
+                param = [
+                    "anonymous":  ["anonymousNickname": post.anonymousNickname!, "anonymousPassword": post.anonymousPassword!],
+                    "boardId": 1,
+                    "isNotice": "NORMAL",
+                    "isSecret": post.isSecret!,
+                    "postContent": ["text": post.text!, "title": post.title!],
+                    "tagList": [["tagId": post.tagId!]]
+                ]
+            } else {
+                param = [
+                    "anonymous":  ["anonymousNickname": post.anonymousNickname!, "anonymousPassword": post.anonymousPassword!],
+                    "boardId": 1,
+                    "isNotice": "NORMAL",
+                    "isSecret": post.isSecret!,
+                    "postContent": ["text": post.text!, "title": post.title!]
+                ]
+            }
+            
+            let call: DataRequest
+            
+            if isLogin == false {
+                call = AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default)
+            } else {
+                let tokenUtils = TokenUtils()
+                let header = tokenUtils.getAuthorizationHeader()
+                call = AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header)
+            }
+            call.responseJSON { res in
+                let result = try! res.result.get()
+                guard let jsonObject = result as? NSDictionary else {
+                    return
+                }
+                if jsonObject["status"] is Int{
+                    let resultCode = jsonObject["status"] as! Int
+                    if resultCode == 201 {
+                        self.dismissAlert("게시글 등록에 성공했습니다.\n새로고침 버튼을 눌러주세요.")
+                    } else {
+                        let msg = jsonObject["message"] as! String
+                        self.alert(msg)
+                    }
+                }
+            }
+        }
+    }
     
+    func checkIsValid() -> Bool {
+        if titleField.text!.count < 1 {
+            alert("제목을 입력해 주세요.")
+            return false
+        } else if textField.text!.count < 1 {
+            alert("내용을 입력해 주세요.")
+            return false
+        } else if anonymousNickname.text!.count < 1 {
+            alert("닉네임을 입력해 주세요.")
+            return false
+        } else if anonymousPassword.text!.count < 1 {
+            alert("비밀번호를 입력해 주세요.")
+            return false
+        } else {
+            return true
+        }
+    }
+    
+
 }
 
