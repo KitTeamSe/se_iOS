@@ -229,7 +229,15 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             post.anonymousNickname = anonymousNickname.text!
             post.anonymousPassword = anonymousPassword.text!
             post.title = titleField.text!
-            post.text = textField.text!
+            
+//            let htmlString = textField.attributedText!
+//            post.text = htmlToAttributedString(myHtml: htmlString!)
+//
+//            post.text = textField.text!
+//
+            let tempText = "<p>" + textField.text! + "</p>"
+            post.textString = tempText
+            
             if isCheck == false {
                 post.isSecret = "NORMAL"
             } else {
@@ -248,7 +256,7 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     "boardId": 1,
                     "isNotice": "NORMAL",
                     "isSecret": post.isSecret!,
-                    "postContent": ["text": post.text!, "title": post.title!],
+                    "postContent": ["text": post.textString!, "title": post.title!],
                     "tagList": [["tagId": post.tagId!]]
                 ]
             } else {
@@ -257,7 +265,7 @@ class PostFormViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     "boardId": 1,
                     "isNotice": "NORMAL",
                     "isSecret": post.isSecret!,
-                    "postContent": ["text": post.text!, "title": post.title!]
+                    "postContent": ["text": post.textString!, "title": post.title!]
                 ]
             }
             

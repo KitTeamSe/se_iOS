@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Firebase
 
 protocol SendDataDelegate {
     func sendData(data: Bool)
@@ -32,23 +33,34 @@ class FreeboardViewController: UIViewController, UITableViewDelegate, UITableVie
     var previewPost: [Post] = []
     var createAt: [String] = []
     
+    let mySize: Int = 25
+    
     var pageEmptyCheck: Bool?
+    
+    var token: String?
     
     override func viewDidLoad() {
         //self.isLogin = appDelegate.isLogin!
         isLogin = false
         changeBtnLoginLogOut()
-        getPost(boardId: 1, direction: "DESC", page: pageNum, size: 25)
+        getPost(boardId: 1, direction: "DESC", page: pageNum, size: mySize)
         
         super.viewDidLoad()
         self.postTableView.dataSource = self
         self.postTableView.delegate = self
         
+        if Messaging.messaging().fcmToken != nil {
+            token = Messaging.messaging().fcmToken
+        }
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.postTableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
     @IBAction func btnLoginLogout(_ sender: Any) {
@@ -83,30 +95,22 @@ class FreeboardViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func btnNextpage(_ sender: Any) {
-        self.btnPreviewPage.isUserInteractionEnabled = true
         if self.pageEmptyCheck == false {
             pageNum = pageNum + 1
-            getPost(boardId: 1, direction: "DESC", page: pageNum, size: 25)
-        } else {
-            alert("마지막 페이지입니다.")
-            pageNum = pageNum - 1
-            self.btnNextPage.isUserInteractionEnabled = false
+            getPost(boardId: 1, direction: "DESC", page: pageNum, size: mySize)
         }
-        
     }
     @IBAction func btnPreviewPage(_ sender: Any) {
-        self.btnNextPage.isUserInteractionEnabled = true
         if pageNum == 1 {
-            print(pageNum)
-            self.btnPreviewPage.isUserInteractionEnabled = false
+            alert("첫 페이지 입니다.")
         } else {
             pageNum = pageNum - 1
-            getPost(boardId: 1, direction: "DESC", page: pageNum, size: 25)
-            print(pageNum)
+            getPost(boardId: 1, direction: "DESC", page: pageNum, size: mySize)
         }
     }
     @IBAction func btnAction(_ sender: Any) {
-        getPost(boardId: 1, direction: "DESC", page: pageNum, size: 25)
+        pageNum = 1
+        getPost(boardId: 1, direction: "DESC", page: pageNum, size: mySize)
     }
     
     
@@ -133,6 +137,13 @@ class FreeboardViewController: UIViewController, UITableViewDelegate, UITableVie
                         if let tempCheck = tempPostListItem["empty"] as? Bool {
                             self.pageEmptyCheck = tempCheck
                         }
+                        if self.pageEmptyCheck == true {
+                            self.alert("마지막 페이지입니다.")
+                            self.pageNum = self.pageNum - 1
+                            self.pageEmptyCheck = false
+                            self.getPost(boardId: 1, direction: "DESC", page: self.pageNum, size: self.mySize)
+                            return
+                        }
                         
                         if let temp2 = tempPostListItem["content"] as? [Any] {
                             
@@ -152,7 +163,12 @@ class FreeboardViewController: UIViewController, UITableViewDelegate, UITableVie
                                 self.createAt.append(tempCreateAt)
                                 let post = Post()
                                 post.title = temp3?["title"] as? String
-                                post.previewText = temp3?["previewText"] as? String
+                                
+                                
+                                
+                                let htmlString = temp3?["previewText"] as? String
+                                post.previewText = htmlToAttributedString(myHtml: htmlString!)
+                                
                                 post.postId = temp3?["postId"] as? Int
                                 self.previewPost.append(post)
                             }
@@ -180,10 +196,11 @@ class FreeboardViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PostTableViewCell = postTableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
         //if self.createAt.count > 0 {
+        cell.selectionStyle = .none
         if self.pageEmptyCheck == false {
             cell.createAtLbl.text! = self.createAt[indexPath.row]
             cell.titleLbl.text! = self.previewPost[indexPath.row].title!
-            cell.previewTextLbl.text! = self.previewPost[indexPath.row].previewText!
+            cell.previewTextLbl.attributedText! = self.previewPost[indexPath.row].previewText!
         } else {
             cell.createAtLbl.text! = ""
             cell.titleLbl.text! = "게시글이 없습니다."
@@ -192,8 +209,12 @@ class FreeboardViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        <#code#>
-//    }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sendPostId = self.previewPost[indexPath.row].postId!
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "PostRead") as? PostReadViewController else {
+            return
+        }
+        vc.receivePostId = sendPostId
+        show(vc, sender: nil)
+    }
 }

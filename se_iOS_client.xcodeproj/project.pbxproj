@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		70CB5E5DB41F543C806C9CB3 /* Pods_se_iOS_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F7F39D88FAA30C7C94E619 /* Pods_se_iOS_client.framework */; };
 		AF0DE56B2654486900C5E36F /* FreeboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DE56A2654486900C5E36F /* FreeboardViewController.swift */; };
-		AF0DE56D26544E0600C5E36F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DE56C26544E0600C5E36F /* MenuViewController.swift */; };
 		AF0DE56F26544E1400C5E36F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DE56E26544E1400C5E36F /* SearchViewController.swift */; };
 		AF0DE57126544E2100C5E36F /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DE57026544E2100C5E36F /* MypageViewController.swift */; };
-		AF0DE57326544E2A00C5E36F /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0DE57226544E2A00C5E36F /* AlarmViewController.swift */; };
 		AF1FB8CB2618B1650026E7BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1FB8CA2618B1650026E7BA /* LoginViewController.swift */; };
 		AF4E908B264000DB00DE02C3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E908A264000DB00DE02C3 /* TabBarController.swift */; };
 		AF62E5462656DC5F0045A8A8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62E5452656DC5F0045A8A8 /* Utils.swift */; };
@@ -20,6 +18,9 @@
 		AF8708982662C373005E7A43 /* PostReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8708972662C373005E7A43 /* PostReadViewController.swift */; };
 		AF87089A26633D6B005E7A43 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF87089926633D6B005E7A43 /* Tag.swift */; };
 		AF87089C266340A7005E7A43 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF87089B266340A7005E7A43 /* TagTableViewCell.swift */; };
+		AF8D41932665AEA900CBC897 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8D41922665AEA900CBC897 /* MenuTableViewCell.swift */; };
+		AF8D41952665AEBB00CBC897 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8D41942665AEBB00CBC897 /* MenuViewController.swift */; };
+		AF8D41972665AECB00CBC897 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8D41962665AECB00CBC897 /* Menu.swift */; };
 		AF9554CF265D182500BCBBA5 /* PostFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9554CE265D182500BCBBA5 /* PostFormViewController.swift */; };
 		AF9554D1265D45F100BCBBA5 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9554D0265D45F100BCBBA5 /* PostTableViewCell.swift */; };
 		AF9554D3265D47AC00BCBBA5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9554D2265D47AC00BCBBA5 /* Post.swift */; };
@@ -31,6 +32,7 @@
 		AFA64B46260A1AEC001AB94F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFA64B44260A1AEC001AB94F /* LaunchScreen.storyboard */; };
 		AFAE06C32656AE13000414CC /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAE06C22656AE13000414CC /* SearchTableViewCell.swift */; };
 		AFCC261B26581F910005B4F5 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCC261A26581F910005B4F5 /* UserInfoManager.swift */; };
+		AFCFD59A266566E900B6D7B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFCFD599266566E900B6D7B9 /* GoogleService-Info.plist */; };
 		AFF4D68C2618F3F800C06FFB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF4D68B2618F3F800C06FFB /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,10 +40,8 @@
 		161DE9C87AEC715CE48F75C2 /* Pods-se_iOS_client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-se_iOS_client.release.xcconfig"; path = "Target Support Files/Pods-se_iOS_client/Pods-se_iOS_client.release.xcconfig"; sourceTree = "<group>"; };
 		74F7F39D88FAA30C7C94E619 /* Pods_se_iOS_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_se_iOS_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0DE56A2654486900C5E36F /* FreeboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeboardViewController.swift; sourceTree = "<group>"; };
-		AF0DE56C26544E0600C5E36F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		AF0DE56E26544E1400C5E36F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AF0DE57026544E2100C5E36F /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
-		AF0DE57226544E2A00C5E36F /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		AF1FB8CA2618B1650026E7BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AF4E908A264000DB00DE02C3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		AF62E5452656DC5F0045A8A8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -49,10 +49,13 @@
 		AF8708972662C373005E7A43 /* PostReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReadViewController.swift; sourceTree = "<group>"; };
 		AF87089926633D6B005E7A43 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		AF87089B266340A7005E7A43 /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
+		AF8D41922665AEA900CBC897 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		AF8D41942665AEBB00CBC897 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		AF8D41962665AECB00CBC897 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		AF9554CE265D182500BCBBA5 /* PostFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormViewController.swift; sourceTree = "<group>"; };
 		AF9554D0265D45F100BCBBA5 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		AF9554D2265D47AC00BCBBA5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		AFA64B33260A1AEC001AB94F /* se_iOS_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = se_iOS_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFA64B33260A1AEC001AB94F /* SEBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SEBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA64B36260A1AEC001AB94F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFA64B38260A1AEC001AB94F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AFA64B3D260A1AEC001AB94F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 		AFA64B47260A1AEC001AB94F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFAE06C22656AE13000414CC /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		AFCC261A26581F910005B4F5 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
+		AFCFD5902664808F00B6D7B9 /* se_iOS_client.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = se_iOS_client.entitlements; sourceTree = "<group>"; };
+		AFCFD599266566E900B6D7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AFF4D68B2618F3F800C06FFB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CCDE8C8310F13F7B9BDF4B7D /* Pods-se_iOS_client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-se_iOS_client.debug.xcconfig"; path = "Target Support Files/Pods-se_iOS_client/Pods-se_iOS_client.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +97,7 @@
 				AF9554D2265D47AC00BCBBA5 /* Post.swift */,
 				AF8708952662C0DE005E7A43 /* Account.swift */,
 				AF87089926633D6B005E7A43 /* Tag.swift */,
+				AF8D41962665AECB00CBC897 /* Menu.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -112,12 +118,11 @@
 				AFF4D68B2618F3F800C06FFB /* SignUpViewController.swift */,
 				AF4E908A264000DB00DE02C3 /* TabBarController.swift */,
 				AF0DE56A2654486900C5E36F /* FreeboardViewController.swift */,
-				AF0DE56C26544E0600C5E36F /* MenuViewController.swift */,
 				AF0DE56E26544E1400C5E36F /* SearchViewController.swift */,
 				AF0DE57026544E2100C5E36F /* MypageViewController.swift */,
-				AF0DE57226544E2A00C5E36F /* AlarmViewController.swift */,
 				AF9554CE265D182500BCBBA5 /* PostFormViewController.swift */,
 				AF8708972662C373005E7A43 /* PostReadViewController.swift */,
+				AF8D41942665AEBB00CBC897 /* MenuViewController.swift */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -144,7 +149,7 @@
 		AFA64B34260A1AEC001AB94F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AFA64B33260A1AEC001AB94F /* se_iOS_client.app */,
+				AFA64B33260A1AEC001AB94F /* SEBoard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 		AFA64B35260A1AEC001AB94F /* se_iOS_client */ = {
 			isa = PBXGroup;
 			children = (
+				AFCFD5902664808F00B6D7B9 /* se_iOS_client.entitlements */,
 				AFAE06C12656ADF8000414CC /* TableViewCell */,
 				AF1FB8D52618D04A0026E7BA /* Utils */,
 				AF1FB8D22618C4290026E7BA /* viewController */,
@@ -161,6 +167,7 @@
 				AFA64B38260A1AEC001AB94F /* SceneDelegate.swift */,
 				AFA64B42260A1AEC001AB94F /* Assets.xcassets */,
 				AFA64B47260A1AEC001AB94F /* Info.plist */,
+				AFCFD599266566E900B6D7B9 /* GoogleService-Info.plist */,
 				AFA64B3F260A1AEC001AB94F /* se_iOS_client.xcdatamodeld */,
 			);
 			path = se_iOS_client;
@@ -172,6 +179,7 @@
 				AFAE06C22656AE13000414CC /* SearchTableViewCell.swift */,
 				AF9554D0265D45F100BCBBA5 /* PostTableViewCell.swift */,
 				AF87089B266340A7005E7A43 /* TagTableViewCell.swift */,
+				AF8D41922665AEA900CBC897 /* MenuTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -204,7 +212,7 @@
 			);
 			name = se_iOS_client;
 			productName = se_iOS_client;
-			productReference = AFA64B33260A1AEC001AB94F /* se_iOS_client.app */;
+			productReference = AFA64B33260A1AEC001AB94F /* SEBoard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -246,6 +254,7 @@
 			files = (
 				AFA64B46260A1AEC001AB94F /* LaunchScreen.storyboard in Resources */,
 				AFA64B43260A1AEC001AB94F /* Assets.xcassets in Resources */,
+				AFCFD59A266566E900B6D7B9 /* GoogleService-Info.plist in Resources */,
 				AFA64B3E260A1AEC001AB94F /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,15 +318,16 @@
 				AF0DE56B2654486900C5E36F /* FreeboardViewController.swift in Sources */,
 				AF62E5462656DC5F0045A8A8 /* Utils.swift in Sources */,
 				AF1FB8CB2618B1650026E7BA /* LoginViewController.swift in Sources */,
+				AF8D41952665AEBB00CBC897 /* MenuViewController.swift in Sources */,
 				AFA64B37260A1AEC001AB94F /* AppDelegate.swift in Sources */,
-				AF0DE56D26544E0600C5E36F /* MenuViewController.swift in Sources */,
 				AF87089A26633D6B005E7A43 /* Tag.swift in Sources */,
 				AFA64B41260A1AEC001AB94F /* se_iOS_client.xcdatamodeld in Sources */,
 				AF9554D3265D47AC00BCBBA5 /* Post.swift in Sources */,
+				AF8D41932665AEA900CBC897 /* MenuTableViewCell.swift in Sources */,
+				AF8D41972665AECB00CBC897 /* Menu.swift in Sources */,
 				AF4E908B264000DB00DE02C3 /* TabBarController.swift in Sources */,
 				AFAE06C32656AE13000414CC /* SearchTableViewCell.swift in Sources */,
 				AF87089C266340A7005E7A43 /* TagTableViewCell.swift in Sources */,
-				AF0DE57326544E2A00C5E36F /* AlarmViewController.swift in Sources */,
 				AFA64B39260A1AEC001AB94F /* SceneDelegate.swift in Sources */,
 				AF0DE57126544E2100C5E36F /* MypageViewController.swift in Sources */,
 			);
@@ -467,6 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = se_iOS_client/se_iOS_client.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 94WQ5WFP5X;
 				INFOPLIST_FILE = se_iOS_client/Info.plist;
@@ -475,7 +486,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kit.cs.ailab.syonKim.se-iOS-client";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SEBoard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -487,6 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = se_iOS_client/se_iOS_client.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 94WQ5WFP5X;
 				INFOPLIST_FILE = se_iOS_client/Info.plist;
@@ -495,7 +507,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "kit.cs.ailab.syonKim.se-iOS-client";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SEBoard;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

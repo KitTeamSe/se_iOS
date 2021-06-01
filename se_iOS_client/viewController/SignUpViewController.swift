@@ -103,8 +103,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                 "phoneNumber"   : phoneNumber,
                 "questionId"    : questionId!,
                 "studentId"     : studentId,
-                "type"          : "STUDENT",
-                "informationOpenAgree" : "AGREE"
+                "type"          : "STUDENT"
             ]
             let url = "http://swagger.se-testboard.duckdns.org/api/v1/signup"
             let call = AF.request(url, method: HTTPMethod.post, parameters: param, encoding: JSONEncoding.default)
@@ -117,8 +116,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                     return
                 }
                 
-                if jsonObject["code"] is Int {
-                    let resultCode = jsonObject["code"] as! Int
+                if jsonObject["status"] is Int {
+                    let resultCode = jsonObject["status"] as! Int
                     if resultCode == 201 {
                         self.dismissAlert("회원가입에 성공하였습니다.")
                     } else {

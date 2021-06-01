@@ -24,7 +24,7 @@ class TabBarController: UITabBarController {
         //appDelegate.isLogin = self.isLogin
         
         
-        self.selectedIndex = 2;
+        self.selectedIndex = 2
 
         super.viewDidLoad()
 

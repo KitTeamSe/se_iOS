@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import WebKit
 
 /*
 class SearchViewController: UIViewController, UISearchResultsUpdating {
@@ -62,19 +63,18 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.searchResultTableView.dataSource = self
         self.searchResultTableView.delegate = self
+  
+        
         self.mySearchBar.delegate = self
         self.mySearchBar.placeholder = "검색어를 입력하세요."
         
-        //getSearch(searchText: "줄")
         hideKeyboard()
     }
     
     func getSearch(searchText: String, success: (()->Void)? = nil, fail: ((String)->Void)? = nil) {
         //self.indicatorView.startAnimating()
         let url = "http://swagger.se-testboard.duckdns.org/api/v1/post/search"
-        let tokenUtils = TokenUtils()
-        let header = tokenUtils.getAuthorizationHeader()
-        
+
         let param: Parameters = [
             "boardId"               : 1,
             "keyword"               : searchText,
@@ -82,7 +82,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             "postSearchType"        : "TITLE_TEXT"
         ]
         
-        let call = AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header)
+        var call = AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default)
+        
+        if UserDefaults.standard.string(forKey: "loginId") != nil {
+            let tokenUtils = TokenUtils()
+            let header = tokenUtils.getAuthorizationHeader()
+            
+            call = AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header)
+        }
+        
         self.previewPost = []
         
         call.responseJSON { res in
@@ -120,7 +128,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                 self.createAt.append(tempCreateAt)
                                 let post = Post()
                                 post.title = temp3?["title"] as? String
-                                post.previewText = temp3?["previewText"] as? String
+                                
+                                let htmlString = temp3?["previewText"] as? String
+                                post.previewText = htmlToAttributedString(myHtml: htmlString!)
+                                
                                 post.postId = temp3?["postId"] as? Int
                                 self.previewPost.append(post)
                             }
@@ -147,11 +158,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SearchTableViewCell = searchResultTableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchTableViewCell
-        
+        cell.selectionStyle = .none
         if self.pageEmptyCheck == false {
             cell.createAtLbl.text! = self.createAt[indexPath.row]
             cell.titleLbl.text! = self.previewPost[indexPath.row].title!
-            cell.previewTextLbl.text! = self.previewPost[indexPath.row].previewText!
+            cell.previewTextLbl?.attributedText! = self.previewPost[indexPath.row].previewText!
         } else {
             cell.createAtLbl.text! = ""
             cell.titleLbl.text! = "게시글이 없습니다."
@@ -160,10 +171,36 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchText = searchBar.text
-        getSearch(searchText: searchText!)
-        view.endEditing(true)
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("안눌려 왜")
+        let sendPostId = self.previewPost[indexPath.row].postId!
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "PostRead") as? PostReadViewController else {
+            return
+        }
+        vc.receivePostId = sendPostId
+        show(vc, sender: nil)
     }
+
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        searchText = self.mySearchBar.text
+        self.mySearchBar.showsCancelButton = false
+        self.mySearchBar.text = ""
+        self.mySearchBar.resignFirstResponder()
+        getSearch(searchText: searchText!)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.mySearchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.mySearchBar.showsCancelButton = false
+        self.mySearchBar.text = ""
+        self.mySearchBar.resignFirstResponder()
+    }
+    
 }
 

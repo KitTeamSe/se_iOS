@@ -28,6 +28,12 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var btnAddMyTag: UIButton!
     @IBOutlet weak var btnDeleteMyTag: UIButton!
     
+    @IBOutlet weak var myTitleField: UILabel!
+    @IBOutlet weak var myTagTitleField: UILabel!
+    
+    let seColor = #colorLiteral(red: 0.3450980392, green: 0.7490196078, blue: 0.8823529412, alpha: 1)
+    var radius: CGFloat!
+    var borderWidth: CGFloat!
     
     var checkForm: Bool?
     
@@ -40,12 +46,17 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setRadius(radius: 4)
+        setBorderColor()
+        setBorderWidth(borderWidth: 1)
+        
         if UserDefaults.standard.string(forKey: "loginId") == nil {
             dismissAlert("로그인 후 이용 가능합니다.")
         } else {
             alert("반갑습니다. \(String(describing: UserDefaults.standard.string(forKey: "loginId")!))님.")
             idField.text! = UserDefaults.standard.string(forKey: "loginId")!
             idField.isUserInteractionEnabled = false
+            originNicknameField.isUserInteractionEnabled = false
             getMyAcoount()
             getTagList()
             getMyTagList()
@@ -334,11 +345,11 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     @IBAction func textDidChanged(_ sender: Any) {
-        checkMaxLength(textField: setMyTagField, maxLength: 1)
+        checkMaxLength(textField: setMyTagField, maxLength: 2)
     }
     
     @IBAction func btnAddMyTag(_ sender: Any) {
-        if setMyTagField.text != nil {
+        if setMyTagField.text! != "" {
             let myTag : Int = Int(setMyTagField.text!)!
             let param: Parameters = [
                 "tagId"                 : myTag
@@ -363,17 +374,22 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             //self.myTagListField.text = self.myTagListField.text! + ", " + String(myTag)
                             self.getMyTagList()
                         }
+                    } else {
+                        let msg = (jsonObject["message"] as? String) ?? "등록 실패"
+                        self.alert(msg)
                     }
                 } else {
                     let msg = (jsonObject["message"] as? String) ?? "등록 실패"
                     self.alert(msg)
                 }
             }
+        } else {
+            self.alert("태그를 입력해 주세요.")
         }
     }
     
     @IBAction func btnDeleteMyTag(_ sender: Any) {
-        if setMyTagField.text != nil {
+        if setMyTagField.text! != "" {
             let myTag : Int = Int(setMyTagField.text!)!
             
             for numbers in 0..<receiveMyTagList.count {
@@ -399,14 +415,38 @@ class MypageViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                     self.alert(okMsg)
                                     self.getMyTagList()
                                 }
+                            } else {
+                                print("??")
+                                self.alert("삭제에 실패했습니다.")
+                                let msg = (jsonObject["message"] as? String) ?? "삭제 실패"
+                                self.alert(msg)
                             }
                         } else {
                             let msg = (jsonObject["message"] as? String) ?? "등록 실패"
                             self.alert(msg)
                         }
                     }
+                } else {
+                    self.alert("없는 태그를 입력하였습니다. 우측 표에서 태그 번호를 확인해주세요.")
                 }
             }
+        } else {
+            self.alert("태그를 입력해 주세요.")
         }
+    }
+    
+    func setRadius(radius: CGFloat) {
+        myTitleField.layer.cornerRadius = radius
+        myTagTitleField.layer.cornerRadius = radius
+    }
+    
+    func setBorderColor(){
+        myTitleField.layer.borderColor = seColor.cgColor
+        myTagTitleField.layer.borderColor = seColor.cgColor
+    }
+    
+    func setBorderWidth(borderWidth: CGFloat){
+        myTitleField.layer.borderWidth = borderWidth
+        myTagTitleField.layer.borderWidth = borderWidth
     }
 }

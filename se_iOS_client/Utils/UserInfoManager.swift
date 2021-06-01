@@ -13,6 +13,8 @@ struct UserInfoKey {
 }
 
 class UserInfoManager {
+    let ud = UserDefaults.standard
+    
     var loginId: String? {
         get {
             return UserDefaults.standard.string(forKey: UserInfoKey.loginId)
@@ -24,8 +26,20 @@ class UserInfoManager {
         }
     }
     
+    var myAccountId: Int? {
+        get{
+            return UserDefaults.standard.integer(forKey: "accountId")
+        }
+        set (v) {
+            let ud = UserDefaults.standard
+            ud.set(v, forKey: "accountId")
+            ud.synchronize()
+        }
+    }
+    
     func login(id: String, pw: String, success: (()->Void)? = nil, fail: ((String)->Void)? = nil) {
         //API 호출
+        
         let url = "http://swagger.se-testboard.duckdns.org/api/v1/signin"
         let param: Parameters = [
             "id":  id,
@@ -44,10 +58,9 @@ class UserInfoManager {
                 let resultCode = jsonObject["status"] as! Int
                 if resultCode == 200 {
                     
-                    let ud = UserDefaults.standard
                     
-                    ud.set(id, forKey: "loginId")
-                    print(ud.string(forKey: "loginId")!)
+                    self.ud.set(id, forKey: "loginId")
+                    print(self.ud.string(forKey: "loginId")!)
                     
                     let temp = jsonObject["data"] as? NSDictionary
                     let accessToken = temp?.value(forKey: "token") as! String
@@ -69,5 +82,41 @@ class UserInfoManager {
                 }
             }
         }
+    }
+    
+    func getMyAcoount(success: (()->Void)? = nil, fail: ((String)->Void)? = nil) {
+        //self.indicatorView.startAnimating()
+        let url = "http://swagger.se-testboard.duckdns.org/api/v1/account/my"
+        let tokenUtils = TokenUtils()
+        let header = tokenUtils.getAuthorizationHeader()
+        
+        let call = AF.request(url, encoding: JSONEncoding.default, headers: header)
+        
+        call.responseJSON { res in
+            let result = try! res.result.get()
+            guard let jsonObject = result as? NSDictionary else {
+                fail?("오류:\(result)")
+                return
+            }
+            if jsonObject["status"] is Int {
+                let resultCode = jsonObject["status"] as! Int
+                if resultCode == 200 {
+                    print("status 부르기 성공")
+                    //var temp: NSDictionary! = nil
+                    let temp = jsonObject["data"] as? NSDictionary
+                    if let accountId = temp?.value(forKey: "accountId") as? Int {
+                        self.ud.set(accountId, forKey: "accountId")
+                        print("accountId 부르기 성공")
+                        print(accountId)
+                    }
+                }
+               
+                success?()
+            } else {
+                let msg = (jsonObject["message"] as? String) ?? "개인정보 불러오기 실패"
+                fail?(msg)
+            }
+        }
+        //self.indicatorView.stopAnimating()
     }
 }
